@@ -14,7 +14,7 @@ function HomePage(props) {
 	)
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	// fetch the data from the api
 
 	const client = await MongoClient.connect('mongodb+srv://abdulrahman:u9FU3rKIZxVGSW68@nextjslearning.uvidw.mongodb.net/meetupsData?retryWrites=true&w=majority')
@@ -35,7 +35,6 @@ export async function getStaticProps() {
 				id: meetup._id.toString()
 			})),
 		},
-		revalidate: 1,
 	}
 }
 
